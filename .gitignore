@@ -1,0 +1,12 @@
+# Test data (contains personal student information)
+plugin-test/
+
+# Generated PDFs (can be regenerated from markdown)
+*.pdf
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc

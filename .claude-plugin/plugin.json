@@ -1,0 +1,15 @@
+{
+  "name": "college-navigator",
+  "version": "0.5.0",
+  "description": "A college navigation plugin that builds student profiles through adaptive interviews, reviews competitive alignment, and optimizes college visit planning.",
+  "commands": [
+    "commands/college-navigator"
+  ],
+  "skills": [
+    "skills/college-navigator"
+  ],
+  "agents": [
+    "agents/profile-gap-reviewer",
+    "agents/visit-optimizer"
+  ]
+}
