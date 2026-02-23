@@ -95,6 +95,20 @@ The skill also triggers automatically when you say things like:
 
 The plugin detects existing files from previous sessions. A student returning in a new conversation picks up where they left off — no need to re-interview or regenerate reports from scratch.
 
+## Multiple Ways to Access
+
+Good college guidance shouldn't depend on your tech setup. This project offers
+multiple routes to the same counseling knowledge:
+
+| Route | Cost | Setup Required | Experience |
+|-------|------|---------------|------------|
+| **Claude Code Plugin** | Free (own API key) | Claude Code installed | Full — multi-agent deliberation, file persistence, slash commands |
+| **ChatGPT Custom GPT** | Free (ChatGPT account) | None | Single-agent counselor with interview + analysis |
+| **Gemini Gem** | Free (Google account) | None | Single-agent counselor with interview + analysis |
+
+See the [`platforms/`](platforms/) directory for Custom GPT and Gemini Gem setup
+instructions.
+
 ## Plugin Structure
 
 ```
@@ -109,7 +123,7 @@ college-navigator-plugin/
 ├── skills/
 │   └── college-navigator/
 │       ├── SKILL.md                   # Core skill (interview flow, philosophy, orchestration)
-│       ├── references/
+│       ├── references/                # Source of truth for all platforms
 │       │   ├── counselor-persona.md   # Counseling philosophy and approach
 │       │   ├── interview-guide.md     # Question trees with adaptive branching
 │       │   ├── financial-context-guide.md  # Sensitive financial assessment approach
@@ -118,6 +132,10 @@ college-navigator-plugin/
 │       │   └── deliberation-protocol.md   # Multi-agent consensus protocol
 │       └── scripts/
 │           └── generate-pdf-report.py # Markdown to PDF conversion
+├── platforms/                         # Platform-specific packaging
+│   ├── README.md                      # Platform strategy overview
+│   ├── custom-gpt/                    # ChatGPT Custom GPT instructions + setup
+│   └── gemini-gem/                    # Google Gemini Gem instructions + setup
 └── LICENSE                            # AGPL v3
 ```
 
