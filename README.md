@@ -76,7 +76,7 @@ pip install markdown weasyprint
 
 ```
 /college-navigator              # Start a new session
-/college-navigator Noah         # Resume an existing student's session
+/college-navigator Jordan       # Resume an existing student's session
 /college-navigator which schools should I visit?   # Route directly to visit optimizer
 ```
 

@@ -17,7 +17,7 @@ conversation.
 | Multi-agent deliberation | 3 separate agents consult | Single agent reasons from multiple perspectives |
 | Session persistence | Saves/loads profile files | Conversation only — student must copy/paste profile to resume |
 | Report output | Markdown files + PDF | Text in conversation (student copies to their own document) |
-| Slash commands | `/college-navigator Noah` | Natural language only |
+| Slash commands | `/college-navigator Jordan` | Natural language only |
 | Web search | Agents search for school data | GPT browsing (if enabled) |
 
 ## Setup Instructions

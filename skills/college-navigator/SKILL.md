@@ -6,9 +6,15 @@ description: >
   "help me find colleges", "I don't know where to apply to college",
   "what colleges should I look at", "assess my college readiness",
   "generate a counselor report", or mentions needing help with the college
-  search, admissions process, or choosing schools. Conducts an adaptive
-  interview to build a comprehensive student profile covering academics,
-  interests, finances, and support resources, then produces an actionable report.
+  search, admissions process, or choosing schools. Also triggers on anxiety
+  or process phrases such as "I'm stressed about college", "college apps are
+  overwhelming", "My parents want me to apply to...", "What's FAFSA?",
+  "I need help with my Common App", "the college process is confusing",
+  "I don't know where to start with applications", "how do I pick a major",
+  or any expression of uncertainty, stress, or confusion about the college
+  admissions process. Conducts an adaptive interview to build a comprehensive
+  student profile covering academics, interests, finances, and support
+  resources, then produces an actionable report.
 version: 0.1.0
 ---
 
@@ -122,7 +128,9 @@ The complete profile contains five sections:
 ### Returning Students — Session Continuity
 
 When a student returns in a new session, scan the working directory for existing
-artifacts before doing anything else:
+artifacts before doing anything else. If a profile file exists, check the
+`profile_version` header — if it is missing or does not match `0.5`, note the
+version mismatch and offer to migrate the profile format at the end of the session.
 
 - `{student-name}-college-profile.md` — the core profile
 - `{student-name}-counselor-report.md` — shareable report
@@ -173,6 +181,23 @@ for detailed question trees, but the core principle is:
 After each interview session, save the profile as a structured markdown file.
 Use this format for the filename: `{student-name}-college-profile.md`
 
+The saved profile must begin with YAML frontmatter containing the version:
+
+```yaml
+---
+profile_version: "0.5"
+student_name: "{Student Name}"
+last_updated: "{Date}"
+---
+```
+
+When loading an existing profile, check the `profile_version` field:
+- If `profile_version` matches the current version (`0.5`): proceed normally
+- If `profile_version` is missing or older: note this in the Session Log and
+  offer to re-save the profile in the current format after the session
+- If `profile_version` is newer than expected: warn the user that this profile
+  may have been created with a newer version of the skill
+
 The saved profile should include:
 - All captured information organized by section
 - A "Session Log" noting what was covered and when
@@ -209,8 +234,15 @@ the full protocol.
 - **Interview questions** — data gathering, not recommendations
 - **Factual answers** — "when does FAFSA open?"
 - **Simple clarifications** — no strategic judgment involved
-- **Lightweight check** — if agents have already produced reports for this
-  student, reference those existing analyses rather than re-invoking
+
+### Deliberation Intensity Levels
+
+| Condition | Level | What Happens |
+|-----------|-------|-------------|
+| Agents have already produced reports for this student in the current session | **Skip** | Reference existing reports. Do not re-invoke agents. |
+| Question is about a single school already assessed in an existing report | **Lightweight** | Lead agent checks existing analysis; only re-invoke consulting agents if the profile has changed since the report was generated. |
+| New college list recommendations, major strategy changes, or first-time report generation | **Full** | All agents produce written responses per the standard protocol. |
+| Question spans multiple domains with no prior analysis | **Full** | All agents participate as per trigger table. |
 
 ### Deliberation Log (Optional)
 
@@ -246,7 +278,8 @@ reads the profile independently and produces its own analysis.
 
 **What it produces:** A gap analysis report saved as
 `{student-name}-gap-analysis.md`, which should be appended to or referenced in
-the final counselor report or student self-guide.
+the final counselor report or student self-guide. **Note:** The agent returns its
+analysis in conversation. The primary college-navigator skill writes the file.
 
 ## Visit Optimization
 
@@ -274,7 +307,9 @@ school list (from the profile or provided separately).
 
 **What it produces:** A visit optimization report saved as
 `{student-name}-visit-optimization.md` with per-school triage, conditional
-actions, suggested additions to the list, and visit planning notes.
+actions, suggested additions to the list, and visit planning notes. **Note:**
+The agent returns its analysis in conversation. The primary college-navigator
+skill writes the file.
 
 ## Generating the Report
 
@@ -372,6 +407,13 @@ the script's docstring for details.
   Categorizes each school as prioritize / conditional / skip / apply-without-visit.
   For conditional fits, identifies specific actions to improve candidacy.
   **Invoke when the student has a college list and visits planned or under consideration.**
+
+**Important: Agents are read-only.** Both agents (`profile-gap-reviewer` and
+`visit-optimizer`) return their analysis in conversation. They do NOT write
+files directly. The primary `college-navigator` skill is responsible for
+saving all output files (profiles, reports, gap analyses, visit optimizations).
+When an agent produces analysis, the primary skill captures it and writes the
+appropriate markdown file.
 
 ### Scripts
 

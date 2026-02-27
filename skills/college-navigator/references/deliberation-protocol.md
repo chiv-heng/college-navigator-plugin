@@ -167,22 +167,40 @@ The primary counselor skill orchestrates the deliberation:
 3. Consulting agents are invoked to review the draft
 4. The primary counselor synthesizes and presents the final recommendation
 
-### Lightweight vs Full Deliberation
+### Deliberation Intensity Thresholds
 
-Not every recommendation needs a full three-agent review:
+Use these explicit rules to determine whether to invoke full, lightweight,
+or no deliberation:
 
-**Lightweight deliberation** — For routine recommendations where the
-lead agent has high confidence. Quick check: "Does this conflict with
-anything in the profile or gap analysis?" Can be done by the primary
-counselor referencing existing analysis rather than re-invoking agents.
+**Skip deliberation entirely when:**
+- Agents have already produced reports for this student in the current
+  session and the question can be answered by referencing those existing
+  reports
+- The question is factual, procedural, or a simple clarification
+- Data gathering (interview questions) — no recommendation is being made
 
-**Full deliberation** — For consequential recommendations: college list
-changes, visit plan changes, major strategic advice. All agents
-produce written responses.
+**Use lightweight deliberation when:**
+- The question concerns a single school that has already been assessed in
+  an existing gap analysis or visit optimization report
+- The student's profile has NOT changed since the existing reports were
+  generated
+- The lead agent has high confidence and the recommendation is routine
+- Implementation: the lead agent checks existing analysis and only
+  re-invokes consulting agents if the profile has materially changed
+
+**Use full deliberation when:**
+- New college list recommendations are being made for the first time
+- Major strategy changes are being recommended (e.g., dropping a reach
+  school, adding a new category of schools, changing intended major
+  direction)
+- First-time report generation (counselor report, gap analysis, visit
+  optimization)
+- The question spans multiple domains with no prior analysis to reference
+- Any recommendation the student will act on where no existing analysis
+  exists
 
 ### Efficiency
 
-To avoid unnecessary token/time cost:
 - If the gap reviewer and visit optimizer have already produced reports
   for this student, the primary counselor can reference those reports
   during lightweight deliberation instead of re-invoking the agents

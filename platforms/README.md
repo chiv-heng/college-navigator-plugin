@@ -52,3 +52,9 @@ content — they are not auto-generated.
 2. Include a `README.md` with setup instructions specific to that platform
 3. Include an `instructions.md` with the merged instruction set
 4. Document what capabilities are gained or lost vs. the full plugin
+
+## Sync Tracking
+
+See `SYNC_LOG.md` in this directory for a log of which reference file versions
+each platform was last synced against. After updating any reference file,
+check the log and update platform instruction sets as needed.

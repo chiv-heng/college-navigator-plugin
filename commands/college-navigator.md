@@ -1,6 +1,6 @@
 ---
 description: Start or resume a college planning session — build a student profile, review competitiveness, or optimize campus visits
-argument-hint: Optional student name or question (e.g., "Noah" or "which schools should I visit?")
+argument-hint: Optional student name, question, or --preview (e.g., "Jordan", "which schools should I visit?", or "--preview")
 ---
 
 # College Navigator
@@ -18,6 +18,29 @@ Determine the right starting point based on context:
 2. If files exist, summarize what's already been captured and ask what brought
    them back (update profile, run visit optimizer, review gap analysis, etc.)
 3. If no files exist, start a new profile interview for that student
+
+### If $ARGUMENTS contains --preview
+
+Show a session overview without starting the interview:
+
+1. **For new students** (no existing files found):
+   - Explain what the interview covers (5 profile sections: Academic Profile,
+     Interests & Identity, Financial Context, Support & Resources, College
+     Preferences)
+   - List the reports that can be produced (counselor report, private supplement,
+     student self-guide, gap analysis, visit optimization, deliberation log)
+   - Estimate session length: "A full initial interview typically takes 20-30
+     minutes of conversation"
+   - Explain privacy controls: what goes in shareable vs private reports
+
+2. **For returning students** (existing files found):
+   - Summarize what already exists (list found files)
+   - List what can be done next (update profile, run gap analysis, run visit
+     optimizer, update reports)
+   - Note any gaps in the existing profile
+
+3. **Do NOT start the interview.** End with: "When you're ready to begin, run
+   `/college-navigator` (or `/college-navigator {student-name}` to resume)."
 
 ### If a question is provided via $ARGUMENTS
 
