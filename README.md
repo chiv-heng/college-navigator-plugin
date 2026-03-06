@@ -171,6 +171,10 @@ See [PRIVACY.md](PRIVACY.md). The plugin runs entirely locally — no data is co
 
 [AGPL v3](LICENSE) — Free to use, modify, and share. If you build a service using this plugin, you must release your source code under the same license. This prevents commercial exploitation while keeping the tool freely available for students, families, schools, and nonprofits.
 
+## Feedback
+
+Found a bug or have a feature request? [Open an issue](https://github.com/chiv-heng/college-navigator-plugin/issues). For questions and general discussion, use [Discussions](https://github.com/chiv-heng/college-navigator-plugin/discussions).
+
 ## Contributing
 
 Contributions welcome. If you're a school counselor, college advisor, or someone who has navigated this process and has ideas for improvement, please open an issue or pull request.
