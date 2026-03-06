@@ -46,7 +46,12 @@ Requires [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
 ### Option 1: Download the zip
 
-Download the latest release zip from [Releases](https://github.com/chiv-heng/college-navigator-plugin/releases) and install it through the Claude Code browser or desktop app.
+Download the latest release from [Releases](https://github.com/chiv-heng/college-navigator-plugin/releases), unzip it, and point Claude Code at the directory:
+
+```bash
+unzip college-navigator-plugin-v0.6.0.zip -d college-navigator-plugin
+claude --plugin-dir /path/to/college-navigator-plugin
+```
 
 ### Option 2: Clone the repo
 
