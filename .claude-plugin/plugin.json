@@ -1,13 +1,27 @@
 {
   "name": "college-navigator",
-  "version": "0.6.0",
-  "description": "A college navigation plugin that builds student profiles through adaptive interviews, reviews competitive alignment, and optimizes college visit planning.",
-  "author": "Chiv Heng",
+  "version": "0.9.0",
+  "description": "AI-powered college counseling tool that runs adaptive student interviews, generates competitive gap analyses, and optimizes campus visit plans. Built for school counselors working with limited time and large caseloads. Uses multi-agent deliberation to integrate equity considerations, academic competitiveness, and resource constraints into every recommendation.",
+  "author": {
+    "name": "Chiv Heng",
+    "email": "chiv@heng-services.com"
+  },
   "homepage": "https://github.com/chiv-heng/college-navigator-plugin",
   "repository": "https://github.com/chiv-heng/college-navigator-plugin",
   "license": "AGPL-3.0",
   "privacy_policy": "PRIVACY.md",
-  "keywords": ["college", "admissions", "counseling", "education", "student-profile", "financial-aid"],
+  "keywords": [
+    "college",
+    "admissions",
+    "counseling",
+    "education",
+    "student-profile",
+    "financial-aid",
+    "gap-analysis",
+    "campus-visit",
+    "equity",
+    "k12"
+  ],
   "category": "education",
   "commands": [
     "commands/college-navigator"
