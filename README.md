@@ -163,6 +163,10 @@ college-navigator-plugin/
 | **Visit Optimization** | Student | Per-school triage with visit recommendations and trip planning |
 | **Deliberation Log** | Optional | Internal agent discussion (enabled on request) |
 
+## Privacy
+
+See [PRIVACY.md](PRIVACY.md). The plugin runs entirely locally — no data is collected, transmitted, or stored on external servers. Student financial and personal information is separated into private documents by default.
+
 ## License
 
 [AGPL v3](LICENSE) — Free to use, modify, and share. If you build a service using this plugin, you must release your source code under the same license. This prevents commercial exploitation while keeping the tool freely available for students, families, schools, and nonprofits.
