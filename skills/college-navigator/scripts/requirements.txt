@@ -1,0 +1,6 @@
+# Required for PDF report generation (optional feature)
+markdown>=3.4
+reportlab>=4.0
+
+# Higher quality PDFs (optional, requires: brew install pango)
+# weasyprint>=60

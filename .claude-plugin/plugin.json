@@ -2,6 +2,12 @@
   "name": "college-navigator",
   "version": "0.6.0",
   "description": "A college navigation plugin that builds student profiles through adaptive interviews, reviews competitive alignment, and optimizes college visit planning.",
+  "author": "Chiv Heng",
+  "homepage": "https://github.com/chiv-heng/college-navigator-plugin",
+  "repository": "https://github.com/chiv-heng/college-navigator-plugin",
+  "license": "AGPL-3.0",
+  "keywords": ["college", "admissions", "counseling", "education", "student-profile", "financial-aid"],
+  "category": "education",
   "commands": [
     "commands/college-navigator"
   ],

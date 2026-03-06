@@ -3,6 +3,11 @@
 # that should be in the private supplement, not the shareable report.
 set -euo pipefail
 
+if ! command -v jq &>/dev/null; then
+  echo "WARNING: jq is not installed. Privacy hook cannot check counselor reports for financial keywords. Install jq: brew install jq (macOS) or apt-get install jq (Linux)." >&2
+  exit 0
+fi
+
 input=$(cat)
 
 file_path=$(echo "$input" | jq -r '.tool_input.file_path // empty')

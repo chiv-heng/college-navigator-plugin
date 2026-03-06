@@ -44,6 +44,12 @@ This plugin embodies a specific counseling philosophy:
 
 Requires [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
+### Option 1: Download the zip
+
+Download the latest release zip from [Releases](https://github.com/chiv-heng/college-navigator-plugin/releases) and install it through the Claude Code browser or desktop app.
+
+### Option 2: Clone the repo
+
 ```bash
 git clone https://github.com/chiv-heng/college-navigator-plugin.git
 claude --plugin-dir /path/to/college-navigator-plugin
@@ -132,6 +138,8 @@ college-navigator-plugin/
 │       │   └── deliberation-protocol.md   # Multi-agent consensus protocol
 │       └── scripts/
 │           └── generate-pdf-report.py # Markdown to PDF conversion
+├── scripts/
+│   └── build-zip.sh                   # Package plugin as distributable zip
 ├── platforms/                         # Platform-specific packaging
 │   ├── README.md                      # Platform strategy overview
 │   ├── custom-gpt/                    # ChatGPT Custom GPT instructions + setup

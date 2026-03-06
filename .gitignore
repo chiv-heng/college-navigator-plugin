@@ -1,6 +1,9 @@
 # Generated PDFs (can be regenerated from markdown)
 *.pdf
 
+# Build artifacts (use scripts/build-zip.sh to regenerate)
+*.zip
+
 # macOS
 .DS_Store
 
