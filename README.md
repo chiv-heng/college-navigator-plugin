@@ -1,6 +1,8 @@
 # College Navigator
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin that helps high school students navigate the college search and admissions process. It builds comprehensive student profiles through adaptive interviews, reviews competitive alignment against target schools, and optimizes campus visit planning.
+An AI-powered college counseling tool that helps high school students navigate the college search and admissions process. It builds comprehensive student profiles through adaptive interviews, reviews competitive alignment against target schools, and optimizes campus visit planning.
+
+Available for **Claude Desktop** (Cowork), **Claude Code** (CLI), **ChatGPT**, and **Google Gemini**. The Claude Code version offers the most complete experience with multi-agent deliberation, file persistence, and slash commands — but the core counseling knowledge works on any platform.
 
 ## Who This Is For
 
