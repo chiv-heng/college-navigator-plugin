@@ -1,6 +1,6 @@
 {
   "name": "college-navigator",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "AI-powered college counseling tool that runs adaptive student interviews, generates competitive gap analyses, and optimizes campus visit plans. Built for school counselors working with limited time and large caseloads. Uses multi-agent deliberation to integrate equity considerations, academic competitiveness, and resource constraints into every recommendation.",
   "author": {
     "name": "Chiv Heng",
