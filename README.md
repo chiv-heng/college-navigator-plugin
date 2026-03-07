@@ -42,9 +42,21 @@ This plugin embodies a specific counseling philosophy:
 
 ## Installation
 
-Requires [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+### Claude Desktop (Cowork)
 
-### Option 1: Download the zip
+The easiest way to get started. No terminal required.
+
+1. Download `college-navigator.plugin` from [Releases](https://github.com/chiv-heng/college-navigator-plugin/releases)
+2. Open Claude Desktop and start a Cowork session
+3. Drop the `.plugin` file into the session
+
+The plugin activates automatically. Say "help me with college planning" or use `/college-navigator` to begin.
+
+### Claude Code (CLI)
+
+For the full multi-agent experience with file persistence and slash commands.
+
+#### Option 1: Download the zip
 
 Download the latest release from [Releases](https://github.com/chiv-heng/college-navigator-plugin/releases), unzip it, and point Claude Code at the directory:
 
@@ -53,7 +65,7 @@ unzip college-navigator-plugin-v0.9.0.zip -d college-navigator-plugin
 claude --plugin-dir /path/to/college-navigator-plugin
 ```
 
-### Option 2: Clone the repo
+#### Option 2: Clone the repo
 
 ```bash
 git clone https://github.com/chiv-heng/college-navigator-plugin.git
@@ -113,10 +125,12 @@ multiple routes to the same counseling knowledge:
 
 | Route | Cost | Setup Required | Experience |
 |-------|------|---------------|------------|
+| **Claude Desktop (Cowork)** | Free (Claude account) | Drop in `.plugin` file | Full — multi-agent deliberation, file persistence, natural language triggers |
 | **Claude Code Plugin** | Free (own API key) | Claude Code installed | Full — multi-agent deliberation, file persistence, slash commands |
 | **ChatGPT Custom GPT** | Free (ChatGPT account) | None | Single-agent counselor with interview + analysis |
 | **Gemini Gem** | Free (Google account) | None | Single-agent counselor with interview + analysis |
 
+The Cowork `.plugin` file is included in each [release](https://github.com/chiv-heng/college-navigator-plugin/releases).
 See the [`platforms/`](platforms/) directory for Custom GPT and Gemini Gem setup
 instructions.
 

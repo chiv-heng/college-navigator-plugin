@@ -11,6 +11,7 @@ they are:
 
 | Route | Cost to Student | What They Get |
 |-------|----------------|---------------|
+| **Claude Desktop (Cowork)** | Free (requires Claude account) | Full experience — multi-agent deliberation, file persistence, natural language triggers |
 | **Claude Code Plugin** | Free (requires Claude account) | Full experience — multi-agent deliberation, file persistence, slash commands |
 | **Custom GPT** | Free (requires ChatGPT account) | Single-agent counselor with interview + analysis capabilities |
 | **Gemini Gem** | Free (requires Google account) | Single-agent counselor with interview + analysis capabilities |
@@ -37,14 +38,16 @@ content — they are not auto-generated.
 
 ## Platform Differences
 
-| Capability | Claude Code Plugin | Custom GPT | Gemini Gem |
-|-----------|-------------------|------------|------------|
-| Multi-agent deliberation | Yes (3 agents) | Simulated (single agent, multi-perspective) | Simulated (single agent, multi-perspective) |
-| Session persistence | Yes (file read/write) | No (conversation only) | No (conversation only) |
-| File output | Yes (markdown + PDF) | Limited (conversation output) | Limited (conversation output) |
-| Slash commands | Yes | No | No |
-| Knowledge retrieval | Reference files loaded by agent | Uploaded knowledge files | Context files |
-| Web search | Yes (agents can search) | Yes (browsing capability) | Yes (Google Search) |
+| Capability | Claude Desktop (Cowork) | Claude Code Plugin | Custom GPT | Gemini Gem |
+|-----------|------------------------|-------------------|------------|------------|
+| Multi-agent deliberation | Yes (3 agents) | Yes (3 agents) | Simulated (single agent, multi-perspective) | Simulated (single agent, multi-perspective) |
+| Session persistence | Yes (file read/write) | Yes (file read/write) | No (conversation only) | No (conversation only) |
+| File output | Yes (markdown + PDF) | Yes (markdown + PDF) | Limited (conversation output) | Limited (conversation output) |
+| Slash commands | Yes | Yes | No | No |
+| Natural language triggers | Yes (skill auto-triggers) | Yes (skill auto-triggers) | No | No |
+| Knowledge retrieval | Reference files loaded by agent | Reference files loaded by agent | Uploaded knowledge files | Context files |
+| Web search | Yes (agents can search) | Yes (agents can search) | Yes (browsing capability) | Yes (Google Search) |
+| Privacy hook | Yes (PostToolUse guard) | Yes (PostToolUse guard) | No | No |
 
 ## Adding a New Platform
 
