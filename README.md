@@ -56,17 +56,6 @@ The plugin activates automatically. Say "help me with college planning" or use `
 
 For the full multi-agent experience with file persistence and slash commands.
 
-#### Option 1: Download the zip
-
-Download the latest release from [Releases](https://github.com/chiv-heng/college-navigator-plugin/releases), unzip it, and point Claude Code at the directory:
-
-```bash
-unzip college-navigator-plugin-v0.9.0.zip -d college-navigator-plugin
-claude --plugin-dir /path/to/college-navigator-plugin
-```
-
-#### Option 2: Clone the repo
-
 ```bash
 git clone https://github.com/chiv-heng/college-navigator-plugin.git
 claude --plugin-dir /path/to/college-navigator-plugin

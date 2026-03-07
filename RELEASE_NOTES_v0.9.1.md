@@ -1,6 +1,6 @@
 # College Navigator v0.9.1 (Beta)
 
-Adds Claude Desktop (Cowork) as a platform option. Download the `.plugin` file for Cowork or the `.zip` for Claude Code CLI.
+Adds Claude Desktop (Cowork) as a platform option. Download the `.plugin` file for Cowork or clone the repo for Claude Code CLI.
 
 ## What's new in v0.9.1
 
@@ -21,8 +21,6 @@ Download `college-navigator.plugin` from this release and open it in Claude Desk
 git clone https://github.com/chiv-heng/college-navigator-plugin.git
 claude --plugin-dir /path/to/college-navigator-plugin
 ```
-
-Or download the `.zip`, unzip, and use `--plugin-dir`.
 
 ### Optional: PDF generation
 
