@@ -1,57 +1,60 @@
-# College Navigator — Gemini Gem Setup
+# College Navigator — Google Gemini Gem
 
-This directory contains the instruction set and configuration for deploying
-College Navigator as a Google Gemini Gem.
+A free college counselor accessible to anyone with a Google account. A counselor, parent, or school sets up the Gem once, then students open it and start talking.
 
 ## What Students Get
 
-A free, conversational college counselor accessible to anyone with a Google
-account. The Gem conducts adaptive interviews, builds student profiles,
-performs gap analysis, and provides visit optimization within a single
-conversation.
+The same adaptive interview, gap analysis, and visit optimization as the full plugin, delivered through a single-agent conversation. Google Search is built in, so the Gem can look up school-specific data in real time.
 
-## Setup Instructions
+## Prerequisites
 
-### 1. Create the Gem
+- A Google account
+- A copy of this repo (download the [latest release](https://github.com/chiv-heng/college-navigator-plugin/releases) or clone it)
 
-1. Go to [Gemini](https://gemini.google.com) → Gem manager → New Gem
-2. Name: **College Navigator**
+## Setup (3 minutes)
 
-### 2. Set the Instructions
+### Step 1: Create the Gem
 
-Copy the contents of `instructions.md` into the Gem's instruction field.
+1. Go to [gemini.google.com](https://gemini.google.com)
+2. Click **Gem manager** → **New Gem**
+3. Name it **College Navigator**
 
-Note: Gemini Gems currently have a more limited instruction field than
-Custom GPTs. If the full instructions exceed the character limit, prioritize
-including:
-1. The counseling philosophy and interview philosophy sections (core behavior)
-2. The three modes of analysis section (gap analysis + visit optimization)
-3. The key principles and financial aid essentials
+### Step 2: Paste the instructions
 
-The detailed question trees and report templates can be summarized or the
-student can be guided through them conversationally.
+1. Open `platforms/gemini-gem/instructions.md` from your local copy of this repo
+2. Copy the entire contents and paste it into the Gem's instruction field
 
-### 3. Capabilities
+**If the instructions exceed the character limit**, prioritize these sections (in order):
 
-Gemini Gems have access to Google Search by default, which allows the counselor
-to look up school-specific data (acceptance rates, net prices, program
-offerings).
+1. Counseling philosophy and interview philosophy (core behavior)
+2. Three modes of analysis (gap analysis + visit optimization)
+3. Key principles and financial aid essentials
+
+The detailed question trees and report templates can be trimmed. The Gem will still guide students through them conversationally.
+
+### Step 3: Save
+
+Click **Save**. The Gem is ready to use. Google Search is enabled by default, so students can ask about specific schools and get current data.
+
+## Differences from the Full Plugin
+
+| Feature | Full Plugin (Claude) | Gemini Gem |
+|---------|---------------------|------------|
+| Multi-agent deliberation | 3 separate agents consult | Single agent, multiple perspectives |
+| Session persistence | Saves/loads profile files | Conversation only (student copies profile to resume) |
+| Report output | Markdown files + PDF | Text in conversation |
+| Knowledge files | Reference files loaded by agent | No file uploads (all guidance must fit in the instruction field) |
+| Web search | Agent-initiated | Google Search (built in) |
+| Privacy hook | Warns if financial data leaks into shareable reports | No automated guard |
 
 ## Limitations
 
-- **No knowledge file uploads (as of early 2025).** Unlike Custom GPTs, Gems
-  cannot have supplementary documents uploaded. All guidance must fit within
-  the instruction field or be retrieved via Google Search.
-- **No session continuity.** Same workaround as the Custom GPT — students must
-  copy their profile and paste it into a new conversation.
-- **Instruction length limits.** May need to trim the full instruction set.
-  The `instructions.md` file in this directory is the same as the Custom GPT
-  version. If it exceeds the Gem's character limit, use the prioritization
-  guidance above.
+- **No knowledge file uploads.** Unlike Custom GPTs, Gems can't have supplementary documents uploaded. All guidance must fit within the instruction field or be retrieved via Google Search.
+- **Instruction length limits.** The `instructions.md` in this directory is the full version (same as Custom GPT). If it exceeds the Gem's character limit, use the prioritization guidance above.
+- **No session continuity.** If the student starts a new chat, they lose their profile. Workaround: tell the student to copy their profile summary and paste it into the new conversation.
 
 ## Keeping It Updated
 
-When reference files in `skills/college-navigator/references/` are updated,
-review `instructions.md` for any needed changes. Since Gems don't support
-knowledge file uploads, any critical changes to reference files may need to
-be reflected directly in the instructions.
+When reference files in `skills/college-navigator/references/` change, review `instructions.md` for needed updates. Since Gems don't support knowledge file uploads, critical changes to reference files may need to go directly into the instructions.
+
+Check `platforms/SYNC_LOG.md` for version tracking.

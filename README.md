@@ -63,6 +63,28 @@ git clone https://github.com/chiv-heng/college-navigator-plugin.git
 claude --plugin-dir /path/to/college-navigator-plugin
 ```
 
+### ChatGPT (Custom GPT)
+
+Works with any free ChatGPT account. A counselor or parent sets up the GPT once; students just open the link.
+
+1. Download or clone this repo so you have the files locally
+2. Go to [chat.openai.com](https://chat.openai.com) → Explore GPTs → Create
+3. Name it **College Navigator** and paste the contents of [`platforms/custom-gpt/instructions.md`](platforms/custom-gpt/instructions.md) into the Instructions field
+4. Upload the six reference files from `skills/college-navigator/references/` as Knowledge files
+5. Enable **Web Browsing**, disable DALL-E
+
+Full setup details: [`platforms/custom-gpt/README.md`](platforms/custom-gpt/README.md)
+
+### Google Gemini (Gem)
+
+Works with any Google account.
+
+1. Download or clone this repo so you have the files locally
+2. Go to [gemini.google.com](https://gemini.google.com) → Gem manager → New Gem
+3. Name it **College Navigator** and paste the contents of [`platforms/gemini-gem/instructions.md`](platforms/gemini-gem/instructions.md) into the instruction field
+
+Full setup details: [`platforms/gemini-gem/README.md`](platforms/gemini-gem/README.md)
+
 ### PDF Report Generation
 
 To generate formatted PDF reports from the markdown output:
@@ -118,12 +140,11 @@ multiple routes to the same counseling knowledge:
 |-------|------|---------------|------------|
 | **Claude Desktop (Cowork)** | Free (Claude account) | Drop in `.plugin` file | Full — multi-agent deliberation, file persistence, natural language triggers |
 | **Claude Code Plugin** | Free (own API key) | Claude Code installed | Full — multi-agent deliberation, file persistence, slash commands |
-| **ChatGPT Custom GPT** | Free (ChatGPT account) | None | Single-agent counselor with interview + analysis |
-| **Gemini Gem** | Free (Google account) | None | Single-agent counselor with interview + analysis |
+| **ChatGPT Custom GPT** | Free (ChatGPT account) | Create GPT + upload knowledge files | Single-agent counselor with interview + analysis |
+| **Gemini Gem** | Free (Google account) | Create Gem + paste instructions | Single-agent counselor with interview + analysis |
 
 The Cowork `.plugin` file is included in each [release](https://github.com/chiv-heng/college-navigator-plugin/releases).
-See the [`platforms/`](platforms/) directory for Custom GPT and Gemini Gem setup
-instructions.
+See [Installation](#installation) above for step-by-step setup on each platform.
 
 ## Plugin Structure
 

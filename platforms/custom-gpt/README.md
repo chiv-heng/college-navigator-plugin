@@ -1,86 +1,76 @@
-# College Navigator — Custom GPT Setup
+# College Navigator — ChatGPT Custom GPT
 
-This directory contains the instruction set and configuration for deploying
-College Navigator as a ChatGPT Custom GPT.
+A free college counselor accessible to anyone with a ChatGPT account. A counselor, parent, or school sets up the Custom GPT once, then students just open the link and start talking.
 
 ## What Students Get
 
-A free, conversational college counselor accessible to anyone with a ChatGPT
-account. The Custom GPT conducts adaptive interviews, builds student profiles,
-performs gap analysis, and provides visit optimization — all within a single
-conversation.
+The same adaptive interview, gap analysis, and visit optimization as the full plugin, delivered through a single-agent conversation. The GPT reasons from multiple perspectives (counselor, gap reviewer, visit optimizer) rather than using separate agents.
 
-## What's Different from the Full Plugin
+## Prerequisites
 
-| Feature | Full Plugin | Custom GPT |
-|---------|-----------|------------|
-| Multi-agent deliberation | 3 separate agents consult | Single agent reasons from multiple perspectives |
-| Session persistence | Saves/loads profile files | Conversation only — student must copy/paste profile to resume |
-| Report output | Markdown files + PDF | Text in conversation (student copies to their own document) |
-| Slash commands | `/college-navigator Jordan` | Natural language only |
-| Web search | Agents search for school data | GPT browsing (if enabled) |
+- A ChatGPT account (free tier works)
+- A copy of this repo (download the [latest release](https://github.com/chiv-heng/college-navigator-plugin/releases) or clone it)
 
-## Setup Instructions
+## Setup (5 minutes)
 
-### 1. Create the Custom GPT
+### Step 1: Create the GPT
 
-1. Go to [ChatGPT](https://chat.openai.com) → Explore GPTs → Create
-2. Name: **College Navigator**
-3. Description: *Free college counseling for students who need it. Builds your profile through conversation, assesses competitiveness, and helps plan campus visits.*
+1. Go to [chat.openai.com](https://chat.openai.com)
+2. Click **Explore GPTs** → **Create**
+3. Set the name to **College Navigator**
+4. Set the description to: *Free college counseling for students who need it. Builds your profile through conversation, assesses competitiveness, and helps plan campus visits.*
 
-### 2. Set the Instructions
+### Step 2: Paste the instructions
 
-Copy the contents of `instructions.md` into the **Instructions** field in the
-GPT Builder's Configure tab.
+1. In the GPT Builder, go to the **Configure** tab
+2. Open `platforms/custom-gpt/instructions.md` from your local copy of this repo
+3. Copy the entire contents and paste it into the **Instructions** field
 
-### 3. Upload Knowledge Files
+### Step 3: Upload knowledge files
 
-Upload these files from `skills/college-navigator/references/`:
+Still in the Configure tab, click **Upload files** under Knowledge and upload all six files from `skills/college-navigator/references/`:
 
-1. `interview-guide.md`
-2. `financial-context-guide.md`
-3. `resource-assessment.md`
-4. `report-template.md`
-5. `deliberation-protocol.md`
-6. `counselor-persona.md`
+- `counselor-persona.md`
+- `interview-guide.md`
+- `financial-context-guide.md`
+- `resource-assessment.md`
+- `report-template.md`
+- `deliberation-protocol.md`
 
-These provide the detailed reference material the GPT will retrieve during
-conversations.
+These give the GPT the detailed reference material it retrieves during conversations.
 
-### 4. Configure Capabilities
+### Step 4: Set capabilities
 
-- **Web Browsing:** Enable (allows searching for school-specific data)
-- **DALL-E Image Generation:** Disable (not needed)
-- **Code Interpreter:** Optional (could help with data analysis)
+- **Web Browsing:** Enable (lets it look up school-specific data)
+- **DALL-E Image Generation:** Disable
+- **Code Interpreter:** Optional
 
-### 5. Conversation Starters
+### Step 5: Add conversation starters
 
-Add these as suggested prompts:
+These show up as suggested prompts when a student opens the GPT:
 
 - "I need help figuring out where to apply to college"
 - "Can you help me build a college planning profile?"
 - "I have a list of schools — which ones should I visit?"
 - "Am I competitive for [school name]?"
 
+### Step 6: Save and share
+
+Click **Save** → choose **Anyone with a link** → share the link with students.
+
+## Differences from the Full Plugin
+
+| Feature | Full Plugin (Claude) | Custom GPT |
+|---------|---------------------|------------|
+| Multi-agent deliberation | 3 separate agents consult | Single agent, multiple perspectives |
+| Session persistence | Saves/loads profile files | Conversation only (student copies profile to resume) |
+| Report output | Markdown files + PDF | Text in conversation |
+| Slash commands | `/college-navigator Jordan` | Natural language only |
+| Privacy hook | Warns if financial data leaks into shareable reports | No automated guard |
+
 ## Keeping It Updated
 
-When reference files in `skills/college-navigator/references/` are updated:
+When reference files in `skills/college-navigator/references/` change:
 
-1. Re-upload the changed files to the Custom GPT's knowledge
-2. Review `instructions.md` for any needed changes (structural changes to
-   SKILL.md may require instruction updates)
-
-## Limitations
-
-- **No session continuity.** If the student starts a new chat, they lose their
-  profile. Workaround: instruct the student to copy their profile summary and
-  paste it into a new conversation.
-- **No file output.** Reports are generated as text in the conversation. The
-  student needs to copy them into their own document.
-- **Single agent.** Gap analysis and visit optimization are performed by the
-  same agent using multi-perspective reasoning rather than separate specialized
-  agents.
-- **Knowledge retrieval is approximate.** ChatGPT's retrieval may not always
-  surface the right reference file at the right time. The instructions are
-  written to be self-contained for the most critical guidance, with knowledge
-  files providing supplementary detail.
+1. Re-upload the changed files under Knowledge in the GPT Builder
+2. Check whether `instructions.md` needs updates (check `platforms/SYNC_LOG.md` for version tracking)
