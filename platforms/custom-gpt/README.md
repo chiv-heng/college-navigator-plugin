@@ -64,7 +64,7 @@ Click **Save** → choose **Anyone with a link** → share the link with student
 |---------|---------------------|------------|
 | Multi-agent deliberation | 3 separate agents consult | Single agent, multiple perspectives |
 | Session persistence | Saves/loads profile files | Conversation only (student copies profile to resume) |
-| Report output | Markdown files + PDF | Text in conversation |
+| Report output | Markdown files + PDF | Downloadable files via Code Interpreter, or text in conversation |
 | Slash commands | `/college-navigator Jordan` | Natural language only |
 | Privacy hook | Warns if financial data leaks into shareable reports | No automated guard |
 

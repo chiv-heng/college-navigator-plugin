@@ -140,8 +140,8 @@ multiple routes to the same counseling knowledge:
 |-------|------|---------------|------------|
 | **Claude Desktop (Cowork)** | Free (Claude account) | Drop in `.plugin` file | Full — multi-agent deliberation, file persistence, natural language triggers |
 | **Claude Code Plugin** | Free (own API key) | Claude Code installed | Full — multi-agent deliberation, file persistence, slash commands |
-| **ChatGPT Custom GPT** | Free (ChatGPT account) | Create GPT + upload knowledge files | Single-agent counselor with interview + analysis |
-| **Gemini Gem** | Free (Google account) | Create Gem + paste instructions | Single-agent counselor with interview + analysis |
+| **ChatGPT Custom GPT** | Free (ChatGPT account) | Create GPT + upload knowledge files | Single-agent counselor with interview, analysis, and downloadable reports |
+| **Gemini Gem** | Free (Google account) | Create Gem + paste instructions | Single-agent counselor with interview + analysis (reports as text in conversation) |
 
 The Cowork `.plugin` file is included in each [release](https://github.com/chiv-heng/college-navigator-plugin/releases).
 See [Installation](#installation) above for step-by-step setup on each platform.
