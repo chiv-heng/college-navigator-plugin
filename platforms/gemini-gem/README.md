@@ -42,7 +42,7 @@ Click **Save**. The Gem is ready to use. Google Search is enabled by default, so
 |---------|---------------------|------------|
 | Multi-agent deliberation | 3 separate agents consult | Single agent, multiple perspectives |
 | Session persistence | Saves/loads profile files | Conversation only (student copies profile to resume) |
-| Report output | Markdown files + PDF | Structured text in conversation (student copies to their own document) |
+| Report output | Markdown files + PDF | Export to Google Docs, or copy text from conversation |
 | Knowledge files | Reference files loaded by agent | No file uploads (all guidance must fit in the instruction field) |
 | Web search | Agent-initiated | Google Search (built in) |
 | Privacy hook | Warns if financial data leaks into shareable reports | No automated guard |

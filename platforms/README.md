@@ -42,7 +42,7 @@ content — they are not auto-generated.
 |-----------|------------------------|-------------------|------------|------------|
 | Multi-agent deliberation | Yes (3 agents) | Yes (3 agents) | Simulated (single agent, multi-perspective) | Simulated (single agent, multi-perspective) |
 | Session persistence | Yes (file read/write) | Yes (file read/write) | No (conversation only) | No (conversation only) |
-| File output | Yes (markdown + PDF) | Yes (markdown + PDF) | Yes (via Code Interpreter) | Text in conversation (student copies) |
+| File output | Yes (markdown + PDF) | Yes (markdown + PDF) | Yes (via Code Interpreter) | Yes (export to Google Docs) |
 | Slash commands | Yes | Yes | No | No |
 | Natural language triggers | Yes (skill auto-triggers) | Yes (skill auto-triggers) | No | No |
 | Knowledge retrieval | Reference files loaded by agent | Reference files loaded by agent | Uploaded knowledge files | Context files |
