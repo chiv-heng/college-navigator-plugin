@@ -6,6 +6,8 @@ A free college counselor accessible to anyone with a ChatGPT account. A counselo
 
 The same adaptive interview, gap analysis, and visit optimization as the full plugin, delivered through a single-agent conversation. The GPT reasons from multiple perspectives (counselor, gap reviewer, visit optimizer) rather than using separate agents.
 
+For a feature-by-feature comparison with the Claude plugin, see [`PARITY.md`](PARITY.md).
+
 ## Prerequisites
 
 - A ChatGPT account (free tier works)
@@ -67,6 +69,20 @@ Click **Save** → choose **Anyone with a link** → share the link with student
 | Report output | Markdown files + PDF | Downloadable files via Code Interpreter, or text in conversation |
 | Slash commands | `/college-navigator Jordan` | Natural language only |
 | Privacy hook | Warns if financial data leaks into shareable reports | No automated guard |
+
+## Which Version To Build
+
+Choose a plain Custom GPT if your main goal is to give students access to the
+counseling flow with minimal setup.
+
+Choose **Custom GPT + Actions** if you want to add:
+
+- saved student profiles
+- downloadable reports from your own backend
+- privacy validation before returning counselor-facing output
+- resume flows that behave more like the Claude plugin
+
+The architecture tradeoffs are documented in [`PARITY.md`](PARITY.md).
 
 ## Keeping It Updated
 

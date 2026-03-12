@@ -49,6 +49,10 @@ content — they are not auto-generated.
 | Web search | Yes (agents can search) | Yes (agents can search) | Yes (browsing capability) | Yes (Google Search) |
 | Privacy hook | Yes (PostToolUse guard) | Yes (PostToolUse guard) | No | No |
 
+For the ChatGPT route specifically, see
+[`custom-gpt/PARITY.md`](custom-gpt/PARITY.md) for a closer mapping of what is
+fully portable, what must be simulated, and when GPT Actions are worth adding.
+
 ## Adding a New Platform
 
 1. Create a new directory under `platforms/`
