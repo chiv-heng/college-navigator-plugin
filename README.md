@@ -58,10 +58,29 @@ The plugin activates automatically. Say "help me with college planning" or use `
 
 For the full multi-agent experience with file persistence and slash commands.
 
+**Quick install (one command):**
+
+```bash
+curl -sL https://raw.githubusercontent.com/chiv-heng/college-navigator-plugin/main/install.sh | bash
+```
+
+This clones the plugin to `~/.claude/plugins/college-navigator-plugin` and gives you the exact command to launch it.
+
+**Manual install:**
+
 ```bash
 git clone https://github.com/chiv-heng/college-navigator-plugin.git
 claude --plugin-dir /path/to/college-navigator-plugin
 ```
+
+**Tip:** To avoid typing `--plugin-dir` every time, add a shell alias:
+
+```bash
+echo 'alias claude-college="claude --plugin-dir ~/.claude/plugins/college-navigator-plugin"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+Then just run `claude-college` to start a session with the plugin loaded.
 
 **First-time setup:** Claude Code will prompt you to approve each plugin component (the skill, two agents, and the privacy hook). This is a one-time security review for all third-party plugins. Expect 4-5 approval prompts, then you're set.
 
