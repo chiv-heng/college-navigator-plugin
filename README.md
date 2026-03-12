@@ -63,6 +63,8 @@ git clone https://github.com/chiv-heng/college-navigator-plugin.git
 claude --plugin-dir /path/to/college-navigator-plugin
 ```
 
+**First-time setup:** Claude Code will prompt you to approve each plugin component (the skill, two agents, and the privacy hook). This is a one-time security review for all third-party plugins. Expect 4-5 approval prompts, then you're set.
+
 ### ChatGPT (Custom GPT)
 
 Works with any free ChatGPT account. A counselor or parent sets up the GPT once; students just open the link.
@@ -74,6 +76,7 @@ Works with any free ChatGPT account. A counselor or parent sets up the GPT once;
 5. Enable **Web Browsing**, disable DALL-E
 
 Full setup details: [`platforms/custom-gpt/README.md`](platforms/custom-gpt/README.md)
+Feature parity guide: [`platforms/custom-gpt/PARITY.md`](platforms/custom-gpt/PARITY.md)
 
 ### Google Gemini (Gem)
 
