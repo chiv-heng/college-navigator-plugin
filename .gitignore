@@ -10,3 +10,7 @@
 # Python
 __pycache__/
 *.pyc
+
+# Claude Code — machine-specific (don't commit)
+.claude/settings.local.json
+.claude/memory/
