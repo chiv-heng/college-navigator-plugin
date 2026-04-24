@@ -37,6 +37,7 @@ platform instruction sets if needed.
 | resource-assessment.md | 2026-02-22 | Initial sync |
 | report-template.md | 2026-02-22 | Initial sync |
 | deliberation-protocol.md | 2026-02-22 | Initial sync |
+| platforms/model-agnostic/core-instructions.md | 2026-04-24 | Provenance note added; full content review deferred |
 
 ### Gemini Gem (`platforms/gemini-gem/instructions.md`)
 
@@ -48,6 +49,7 @@ platform instruction sets if needed.
 | resource-assessment.md | 2026-02-22 | Initial sync |
 | report-template.md | 2026-02-22 | Initial sync |
 | deliberation-protocol.md | 2026-02-22 | Initial sync |
+| platforms/model-agnostic/core-instructions.md | 2026-04-24 | Provenance note added; full content review deferred |
 
 ## Quick Check
 
