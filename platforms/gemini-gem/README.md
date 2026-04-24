@@ -53,6 +53,10 @@ Click **Save**. The Gem is ready to use. Google Search is enabled by default, so
 - **Instruction length limits.** The `instructions.md` in this directory is the full version (same as Custom GPT). If it exceeds the Gem's character limit, use the prioritization guidance above.
 - **No session continuity.** If the student starts a new chat, they lose their profile. Workaround: tell the student to copy their profile summary and paste it into the new conversation.
 
+For parity claims, use `../model-agnostic/runtime-capability-matrix.md`; the Gem
+should be described as high on core counseling parity and low on workflow and
+safety parity unless paired with external storage and validation.
+
 ## Keeping It Updated
 
 When reference files in `skills/college-navigator/references/` change, review `instructions.md` for needed updates. Since Gems don't support knowledge file uploads, critical changes to reference files may need to go directly into the instructions.

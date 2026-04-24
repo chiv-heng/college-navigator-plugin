@@ -18,7 +18,15 @@ they are:
 
 ## Source of Truth
 
-All platform packages derive from the same source files:
+The canonical counseling content lives in two layers:
+
+1. `skills/college-navigator/` remains the full Claude reference implementation.
+2. `platforms/model-agnostic/core-instructions.md` is the portable counseling
+   kernel for non-Claude adapters.
+
+Platform packages should derive from the model-agnostic core first, then add
+platform-specific setup, retrieval, persistence, export, and safety behavior.
+The reference files remain canonical for detailed counseling content:
 
 ```
 skills/college-navigator/
@@ -35,6 +43,15 @@ skills/college-navigator/
 When you update a reference file, check whether the platform instruction sets
 need corresponding updates. The platform files merge and adapt the source
 content — they are not auto-generated.
+
+## Parity Tiers
+
+- **Core counseling parity:** The student gets comparable interview quality,
+  reasoning, financial framing, and report content.
+- **Workflow parity:** The platform supports comparable commands, persistence,
+  report updates, exports, and resume behavior.
+- **Safety parity:** The platform can enforce privacy separation through
+  automated validation, not only instructions.
 
 ## Platform Differences
 

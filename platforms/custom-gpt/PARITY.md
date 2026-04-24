@@ -5,16 +5,15 @@ to the full College Navigator plugin built for Claude Code?
 
 ## Bottom Line
 
-A ChatGPT Custom GPT can reproduce the **core counseling experience**:
+A ChatGPT Custom GPT can reach **high core counseling parity** with the Claude
+plugin. It can reproduce the adaptive interview, financial framing, gap analysis,
+visit optimization, and student-facing report logic.
 
-- Adaptive student interview
-- Competitive gap analysis
-- Campus visit optimization
-- Split report logic for shareable vs private content
-- Web-assisted school research
+It reaches only **medium workflow parity** without GPT Actions because persistence,
+resume behavior, and report file updates are manual.
 
-It cannot reproduce every **runtime behavior** of the Claude plugin without
-adding external infrastructure.
+It reaches **low safety parity** unless an Action or backend validates counselor
+reports before returning them.
 
 ## Capability Map
 
