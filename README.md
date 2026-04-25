@@ -4,9 +4,19 @@ An AI-powered college counseling tool that helps high school students navigate t
 
 Available for **Claude Desktop** (Cowork), **Claude Code** (CLI), **ChatGPT**, and **Google Gemini**. The Claude Code version offers the most complete experience with multi-agent deliberation, file persistence, and slash commands — but the core counseling knowledge works on any platform.
 
+## Why This Exists
+
+I am a first-generation college student. My parents were refugees with no college experience, so I navigated the process largely alone. I applied to three schools, never visited any of them, and ended up at URI on scholarship because the alternatives were not financially feasible. My freshman year was miserable. I made it work because I got lucky with a few good professors.
+
+Years later, my son became a junior at a selective high school. I mapped out a week of college visits across different sizes and settings, and used Claude to optimize the schedule and a five-question post-visit survey. Within a few visits he had developed real preferences (gothic architecture over limestone, hills over flat, tight-knit over impersonal). When I fed his survey data back, Claude identified patterns across schools he liked, recommended others worth seeing, and flagged some that were not worth the trip. It also showed us that schools like Amherst and Carleton might cost less than URI after aid, something I would not have caught on my own.
+
+That work was substantial even with two highly resourced parents. The tools I found to help were concierge services charging $2,500 to $25,000+. The students who most need this kind of guidance cannot reach those services. The counselors who serve them are often responsible for hundreds of students each.
+
+This plugin is the working version of that process, made free.
+
 ## Who This Is For
 
-- **Students** who lack access to adequate college counseling (the national average counselor-to-student ratio exceeds 400:1)
+- **Students** who lack access to adequate college counseling (most school counselors carry caseloads of hundreds of students split across mental health, scheduling, and crisis work, leaving little time for college planning)
 - **Families** navigating the college search for the first time
 - **School counselors** who want a structured profile to supplement their conversations with students
 - **Anyone** who believes good college guidance shouldn't depend on what zip code you live in
