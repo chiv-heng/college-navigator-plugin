@@ -63,10 +63,28 @@ consult during the interview.
 4. Transition naturally between sections based on conversational cues.
 5. Close by summarizing what was covered and what remains.
 
+If a student says they have worked with this skill before but the working
+directory is empty (common in ephemeral Cowork sessions without a Project),
+offer them the paste-in fallback: "If you have a saved profile from a prior
+session, paste it now and I'll pick up where we left off — otherwise we
+start fresh." Treat pasted content the same as a profile read from disk.
+
 ### Returning Students — Session Continuity
 
-When a student returns in a new session, scan the working directory for
-existing artifacts before doing anything else. Recognized filenames:
+Returning-student detection requires a persistent working directory.
+
+- **Claude Code:** any directory the user launches from is persistent. Works
+  by default.
+- **Cowork:** ephemeral per session by default. Persistence requires a
+  Cowork **Project** with an attached folder. If the user has not set this
+  up, gracefully treat each session as new and offer the paste-in fallback
+  above.
+- **ChatGPT / Gemini adapters:** no file persistence. Each session starts
+  fresh. The paste-in fallback is the standard resume path.
+
+When a student returns in a session that has persistent storage, scan the
+working directory for existing artifacts before doing anything else.
+Recognized filenames:
 
 - `{student-name}-college-profile.md` — the core profile
 - `{student-name}-counselor-report.md` — shareable report

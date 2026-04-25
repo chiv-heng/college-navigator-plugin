@@ -54,6 +54,15 @@ The easiest way to get started. No terminal required.
 
 The plugin activates automatically. Say "help me with college planning" or use `/college-navigator` to begin.
 
+**For persistent profiles across sessions (recommended):** Cowork sessions are ephemeral by default — student profiles do not survive between sessions unless you use a [Cowork Project](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) with an attached folder.
+
+1. In Claude Desktop, create a **Project** (e.g., "College Planning — {student name}")
+2. Attach a local folder to the Project (e.g., `~/Documents/college-planning/`)
+3. Start your Cowork session **inside that Project** before installing the plugin
+4. The skill will read and write profiles into the attached folder, so subsequent sessions pick up where you left off
+
+If you skip the Project setup, each session starts fresh. The skill handles this gracefully — it offers a paste-in resume option if you have a saved profile from a prior session.
+
 ### Claude Code (CLI)
 
 For the full multi-agent experience with file persistence and slash commands.
@@ -160,10 +169,12 @@ multiple routes to the same counseling knowledge:
 
 | Route | Cost | Setup Required | Experience |
 |-------|------|---------------|------------|
-| **Claude Desktop (Cowork)** | Free (Claude account) | Drop in `.plugin` file | Full — multi-agent deliberation, file persistence, natural language triggers |
+| **Claude Desktop (Cowork)** | Free (Claude account) | Drop in `.plugin` file | Full — multi-agent deliberation, file persistence¹, natural language triggers |
 | **Claude Code Plugin** | Free (own API key) | Claude Code installed | Full — multi-agent deliberation, file persistence, slash commands |
 | **ChatGPT Custom GPT** | Free (ChatGPT account) | Create GPT + upload knowledge files | Single-agent counselor with interview, analysis, and downloadable reports |
 | **Gemini Gem** | Free (Google account) | Create Gem + paste instructions | Single-agent counselor with interview, analysis, and Google Docs export |
+
+¹ **Cowork file persistence requires a [Cowork Project](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) with an attached folder.** The default ephemeral Cowork session does not survive between restarts. See the [Cowork install section](#claude-desktop-cowork) above for the Project setup. If you skip this step, each session starts fresh and the skill offers a paste-in resume option.
 
 The Cowork `.plugin` file is included in each [release](https://github.com/chiv-heng/college-navigator-plugin/releases).
 See [Installation](#installation) above for step-by-step setup on each platform.
