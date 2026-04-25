@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/chiv-heng/college-navigator-plugin",
   "repository": "https://github.com/chiv-heng/college-navigator-plugin",
-  "license": "AGPL-3.0",
+  "license": "AGPL-3.0-only",
   "privacy_policy": "PRIVACY.md",
   "keywords": [
     "college",
@@ -22,15 +22,5 @@
     "equity",
     "k12"
   ],
-  "category": "education",
-  "commands": [
-    "commands/college-navigator"
-  ],
-  "skills": [
-    "skills/college-navigator"
-  ],
-  "agents": [
-    "agents/profile-gap-reviewer",
-    "agents/visit-optimizer"
-  ]
+  "category": "education"
 }

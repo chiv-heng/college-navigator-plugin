@@ -3,6 +3,7 @@
 
 # Build artifacts (use scripts/build-zip.sh to regenerate)
 *.zip
+*.plugin
 
 # macOS
 .DS_Store
@@ -10,6 +11,8 @@
 # Python
 __pycache__/
 *.pyc
+.venv/
+.pytest_cache/
 
 # Claude Code — machine-specific (don't commit)
 .claude/settings.local.json

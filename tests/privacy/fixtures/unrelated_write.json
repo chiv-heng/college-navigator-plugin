@@ -1,0 +1,7 @@
+{
+  "tool_name": "Write",
+  "tool_input": {
+    "file_path": "/tmp/notes.md",
+    "content": "Unrelated file mentioning FAFSA. Hook should ignore non-counselor-report writes."
+  }
+}

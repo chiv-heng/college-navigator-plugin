@@ -1,0 +1,29 @@
+{
+  "comment": "Keywords that typically belong in the private supplement, not the shareable counselor report. Matched case-insensitively as substrings. Edit this list to tune the privacy guard.",
+  "categories": {
+    "financial_aid_terms": [
+      "EFC",
+      "Expected Family Contribution",
+      "FAFSA",
+      "CSS Profile",
+      "net price calculator",
+      "financial aid package",
+      "fee waiver eligibility"
+    ],
+    "household_finances": [
+      "household income",
+      "family income",
+      "family contribution",
+      "salary",
+      "debt-to-income",
+      "loan amount"
+    ],
+    "means_tested_programs": [
+      "free/reduced lunch",
+      "free-reduced lunch",
+      "free and reduced lunch",
+      "Medicaid",
+      "SNAP"
+    ]
+  }
+}

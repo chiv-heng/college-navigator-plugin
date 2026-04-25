@@ -1,0 +1,7 @@
+{
+  "tool_name": "Write",
+  "tool_input": {
+    "file_path": "/tmp/jordan-counselor-report.md",
+    "content": "# Counselor Report — Jordan\n\n## Academic Profile\nGPA 3.7.\n\n## Financial Notes\nFamily plans to file the FAFSA in October. Their EFC is likely in the $5K range.\n"
+  }
+}
