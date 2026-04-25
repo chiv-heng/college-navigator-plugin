@@ -15,18 +15,6 @@ platform instruction sets if needed.
 
 ## Sync Status
 
-### Model-Agnostic Core (`platforms/model-agnostic/core-instructions.md`)
-
-| Source File | Last Synced | Notes |
-|-------------|-------------|-------|
-| skills/college-navigator/SKILL.md | 2026-04-24 | Initial portability refactor |
-| counselor-persona.md | 2026-04-24 | Initial portability refactor |
-| interview-guide.md | 2026-04-24 | Initial portability refactor |
-| financial-context-guide.md | 2026-04-24 | Initial portability refactor |
-| resource-assessment.md | 2026-04-24 | Initial portability refactor |
-| report-template.md | 2026-04-24 | Initial portability refactor |
-| deliberation-protocol.md | 2026-04-24 | Converted to single-model reasoning lenses |
-
 ### Custom GPT (`platforms/custom-gpt/instructions.md`)
 
 | Reference File | Last Synced | Notes |
@@ -37,7 +25,6 @@ platform instruction sets if needed.
 | resource-assessment.md | 2026-02-22 | Initial sync |
 | report-template.md | 2026-02-22 | Initial sync |
 | deliberation-protocol.md | 2026-02-22 | Initial sync |
-| platforms/model-agnostic/core-instructions.md | 2026-04-24 | Provenance note added; full content review deferred |
 
 ### Gemini Gem (`platforms/gemini-gem/instructions.md`)
 
@@ -49,7 +36,6 @@ platform instruction sets if needed.
 | resource-assessment.md | 2026-02-22 | Initial sync |
 | report-template.md | 2026-02-22 | Initial sync |
 | deliberation-protocol.md | 2026-02-22 | Initial sync |
-| platforms/model-agnostic/core-instructions.md | 2026-04-24 | Provenance note added; full content review deferred |
 
 ## Quick Check
 
@@ -59,8 +45,8 @@ Run from the plugin root to see which reference files changed since a date:
 git log --since="2026-02-22" --name-only --pretty=format:"" -- skills/college-navigator/references/ | sort -u
 ```
 
-To see which platform packages changed since the portability refactor:
+To see which platform packages changed since a given date:
 
 ```bash
-git log --since="2026-04-24" --name-only --pretty=format:"" -- platforms/model-agnostic platforms/custom-gpt platforms/gemini-gem | sort -u
+git log --since="2026-04-24" --name-only --pretty=format:"" -- platforms/custom-gpt platforms/gemini-gem | sort -u
 ```

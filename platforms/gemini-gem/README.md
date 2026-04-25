@@ -53,9 +53,10 @@ Click **Save**. The Gem is ready to use. Google Search is enabled by default, so
 - **Instruction length limits.** The `instructions.md` in this directory is the full version (same as Custom GPT). If it exceeds the Gem's character limit, use the prioritization guidance above.
 - **No session continuity.** If the student starts a new chat, they lose their profile. Workaround: tell the student to copy their profile summary and paste it into the new conversation.
 
-For parity claims, use `../model-agnostic/runtime-capability-matrix.md`; the Gem
-should be described as high on core counseling parity and low on workflow and
-safety parity unless paired with external storage and validation.
+The Gem is high on core counseling parity and low on workflow and safety
+parity. There is no session persistence, no automated privacy hook, and no
+multi-agent deliberation. Treat it as a best-effort export of the Claude
+plugin, not a workflow-equivalent surface.
 
 ## Keeping It Updated
 

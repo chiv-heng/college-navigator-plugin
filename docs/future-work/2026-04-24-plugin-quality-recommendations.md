@@ -21,27 +21,22 @@ stronger privacy controls.
 
 Prioritize improvements in this order:
 
-1. Separate core counseling logic from runtime adapters.
+1. ~~Separate core counseling logic from runtime adapters.~~ **Descoped
+   2026-04-25** — see section 1.
 2. Add tests for reports, privacy boundaries, and returning-student behavior.
 3. Reduce active instruction weight.
 4. Strengthen privacy validation without overcommitting to a backend design.
 5. Create scenario benchmarks for student-facing quality.
 
-## 1. Separate Core Logic From Runtime Adapters
+## 1. Separate Core Logic From Runtime Adapters — DESCOPED 2026-04-25
 
-The current plugin blends counseling content, Claude runtime behavior, agents,
-hooks, slash commands, and file persistence. That works well in Claude, but it
-makes portability and validation harder.
-
-Use the portability refactor plan as the next step:
-
-- Create a model-agnostic counseling core.
-- Keep Claude-specific orchestration in the Claude adapter.
-- Treat ChatGPT and Gemini as accessibility adapters with documented tradeoffs.
-- Use parity tiers instead of broad "portable" claims.
-
-This supports student reach without pretending every platform offers the same
-workflow or safety guarantees.
+> The model-agnostic counseling kernel was removed on 2026-04-25. Maintaining
+> a portable core plus three adapters (Claude plugin, ChatGPT, Gemini) creates
+> three drift surfaces with limited payoff. Going forward, the Claude plugin
+> in `skills/college-navigator/` is canonical; `platforms/custom-gpt` and
+> `platforms/gemini-gem` are best-effort manual exports with documented parity
+> loss. The hosted TheQuadQuest app is the durable architecture for the
+> heavier operational needs.
 
 ## 2. Add Tests Around High-Risk Behavior
 
@@ -150,10 +145,9 @@ for the counseling model.
 
 ## Next Actions
 
-- Implement the portability-focused refactor plan.
-- Add privacy hook fixtures and tests.
+- ~~Implement the portability-focused refactor plan.~~ Descoped 2026-04-25.
+- Add privacy hook fixtures and tests. *(Done 2026-04-25; commit c2f6096.)*
 - Add `scripts/check-platform-sync.sh`.
-- Add synthetic benchmark scenarios under `tests/portability/` or
-  `tests/scenarios/`.
+- Add synthetic benchmark scenarios under `tests/scenarios/`.
 - Refactor `generate-pdf-report.py` only after tests exist.
 - Re-run plugin-eval before and after the instruction-weight refactor.
