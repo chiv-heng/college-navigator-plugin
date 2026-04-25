@@ -181,8 +181,8 @@ multiple routes to the same counseling knowledge:
 
 | Route | Cost | Setup Required | Experience |
 |-------|------|---------------|------------|
-| **Claude Desktop (Cowork)** | Free (Claude account) | Drop in `.plugin` file | Full — multi-agent deliberation, file persistence¹, natural language triggers |
-| **Claude Code Plugin** | Free (own API key) | Claude Code installed | Full — multi-agent deliberation, file persistence, slash commands |
+| **Claude Desktop (Cowork)** | Claude Pro | Drop in `.plugin` file | Full — multi-agent deliberation, file persistence¹, natural language triggers |
+| **Claude Code Plugin** | Claude Pro or API | Claude Code installed | Full — multi-agent deliberation, file persistence, slash commands |
 | **ChatGPT Custom GPT** | Free (ChatGPT account) | Create GPT + upload knowledge files | Single-agent counselor with interview, analysis, and downloadable reports |
 | **Gemini Gem** | Free (Google account) | Create Gem + paste instructions | Single-agent counselor with interview, analysis, and Google Docs export |
 
