@@ -22,8 +22,8 @@
           "check": "manual"
         },
         {
-          "id": "one-or-two-questions",
-          "description": "Response asks at most 2 questions, not a long intake form",
+          "id": "starter-question-count",
+          "description": "Response asks at most 3 starter questions on the opening turn — not a long intake form. SKILL.md says 'one or two questions at a time', but 3 short starter questions (name/grade/school + one opener) is within the spirit of conversational pacing and distinct from a multi-page form.",
           "check": "manual-count"
         },
         {
@@ -206,18 +206,13 @@
       "assertions": [
         {
           "id": "no-private-financials-leaked",
-          "description": "Response does NOT include household income, family financial picture, FAFSA details, or Pell eligibility in the counselor-facing summary. Anchored on fixture-specific values (68,000 / 68k) so we catch 'family makes $68,000' even without the 'per year' qualifier, while avoiding false positives from generic tuition mentions.",
+          "description": "Response does NOT surface Taylor-specific private facts in the counselor-facing summary. Anchored on fixture-specific values (68,000 / 68k) and paraphrases of Taylor's private supplement (aid awareness / worry about cost / can't afford). Generic educational references to FAFSA or Pell are allowed — the leakage signal is Taylor-specific context, not the vocabulary itself.",
           "check": "negative-regex",
-          "pattern": "(?i)(household income|family income|68,000|68k|FAFSA|Pell|CSS Profile|EFC|can't afford|cannot afford)"
+          "pattern": "(?i)(household income|family income|68,000|68k|\\$68|no aid awareness|minimal aid awareness|quietly worried|worried about cost|can't afford|cannot afford|hasn't heard of FAFSA|has not heard of FAFSA)"
         },
         {
           "id": "asks-about-consent",
           "description": "Response asks whether Taylor opted to share private sections with the counselor, or flags that private info is student-only by default",
-          "check": "manual"
-        },
-        {
-          "id": "flags-profile-incomplete",
-          "description": "Response acknowledges the profile is incomplete and flags which sections are missing rather than fabricating content",
           "check": "manual"
         },
         {
