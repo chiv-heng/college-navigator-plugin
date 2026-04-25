@@ -1,0 +1,236 @@
+{
+  "skill_name": "college-navigator",
+  "description": "Scenario benchmarks for the College Navigator plugin skill. Six scenarios from docs/future-work/2026-04-24-plugin-quality-recommendations.md section 5. Used to measure quality before and after SKILL.md trimming.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "low-info-junior",
+      "prompt": "I'm a junior and I don't really know where to start with college. I don't have a major in mind yet. Can you help me figure this out?",
+      "expected_output": "Adaptive interview that starts with name/grade/school, then moves to the Academic Profile. Meets the student where they are without assuming prior knowledge. One or two questions at a time, not a long form. Does NOT jump straight to school recommendations.",
+      "files": [],
+      "evaluates": ["interview-quality", "practicality", "resource-match"],
+      "assertions": [
+        {
+          "id": "asks-for-identity-first",
+          "description": "Response asks for the student's name, grade, or school within the first 1-2 questions",
+          "check": "manual-or-regex",
+          "pattern": "(?i)(your name|what's your name|what grade|what year|what school|which school)"
+        },
+        {
+          "id": "starts-with-academic-profile",
+          "description": "Response begins the profile-building process with Academic Profile (GPA, courses, rigor) rather than jumping to preferences or school lists",
+          "check": "manual"
+        },
+        {
+          "id": "one-or-two-questions",
+          "description": "Response asks at most 2 questions, not a long intake form",
+          "check": "manual-count"
+        },
+        {
+          "id": "no-premature-school-recs",
+          "description": "Response does NOT recommend specific schools on first turn",
+          "check": "negative-regex",
+          "pattern": "(?i)(consider applying|I'd recommend|look at|apply to) (Brown|Harvard|MIT|Stanford|Yale|Princeton|Cornell|URI|UMass|BU|Northeastern|Tufts|Holy Cross|UConn)"
+        },
+        {
+          "id": "acknowledges-uncertainty",
+          "description": "Response normalizes not knowing a major rather than pressing for one",
+          "check": "manual"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "first-gen-financial-constraints",
+      "prompt": "I'm the first in my family to go to college. My mom keeps saying we can't afford it. I don't even know where to start with financial aid. What should I do?",
+      "expected_output": "Non-judgmental framing. Introduces net price vs sticker price concept early. Explains FAFSA in plain language without jargon-dumping. Mentions equity-relevant resources (fee waivers, pipeline programs). Treats financial details as sensitive by default, NOT included in counselor report without opt-in.",
+      "files": [],
+      "evaluates": ["financial-sensitivity", "privacy-separation", "resource-match"],
+      "assertions": [
+        {
+          "id": "introduces-net-price",
+          "description": "Response introduces net price vs sticker price concept",
+          "check": "regex",
+          "pattern": "(?i)(net price|sticker price|actual cost|what you'd actually pay)"
+        },
+        {
+          "id": "plain-language-fafsa",
+          "description": "If FAFSA is mentioned, it is spelled out on first use (not jargon-dumped)",
+          "check": "manual"
+        },
+        {
+          "id": "mentions-equity-resource",
+          "description": "Response mentions at least one equity-relevant resource: fee waivers, QuestBridge, Posse, Upward Bound, College Greenlight, or net price calculators",
+          "check": "regex",
+          "pattern": "(?i)(fee waiver|QuestBridge|Posse|Upward Bound|College Greenlight|net price calculator|pell grant)"
+        },
+        {
+          "id": "non-judgmental-framing",
+          "description": "Response frames financial questions around planning needs, not judgment. No language that pathologizes family financial situation.",
+          "check": "manual"
+        },
+        {
+          "id": "reassures-about-aid",
+          "description": "Response communicates that a high-sticker school can cost less than a low-sticker school after aid",
+          "check": "manual"
+        },
+        {
+          "id": "defers-specific-schools",
+          "description": "Response does NOT recommend specific schools on first turn",
+          "check": "negative-regex",
+          "pattern": "(?i)(consider applying|I'd recommend|I would recommend|look at|apply to) (Brown|Harvard|MIT|Stanford|Yale|Princeton|Cornell|URI|UMass|BU|Northeastern|Tufts|Holy Cross|UConn)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "prestige-focused-high-achiever",
+      "prompt": "I have a 4.0 GPA and a 1560 SAT. My parents want me to apply to Harvard, Yale, Princeton, Stanford, and MIT. What are my chances?",
+      "expected_output": "Redirects from 'what are my chances' to profile-building (extracurriculars, narrative, demonstrated interest). Introduces value metrics (grad rates, debt-to-income, post-grad outcomes) and doesn't just validate the prestige list. Suggests schools where the student is above median for merit aid. Uses uncertainty framing. Does NOT assign specific admit percentages.",
+      "files": [],
+      "evaluates": ["accuracy-uncertainty", "resource-match", "interview-quality"],
+      "assertions": [
+        {
+          "id": "no-fake-admit-percentages",
+          "description": "Response does NOT give specific numeric admit probabilities like '25% chance at Harvard'",
+          "check": "negative-regex",
+          "pattern": "\\b(\\d{1,2})\\s*%\\s*(chance|probability|odds|shot) (at|of|for) (Harvard|Yale|Princeton|Stanford|MIT)"
+        },
+        {
+          "id": "introduces-value-metrics",
+          "description": "Response introduces at least one value metric beyond prestige: graduation rate, debt-to-income, net price by income bracket, post-grad outcomes, no-loan policies",
+          "check": "regex",
+          "pattern": "(?i)(graduation rate|debt[- ]to[- ]income|net price|post[- ]grad|no[- ]loan|outcomes|ROI)"
+        },
+        {
+          "id": "suggests-merit-aid-schools",
+          "description": "Response suggests schools where a 4.0/1560 student would be above median for merit aid, or raises the concept that merit aid is a strategy",
+          "check": "manual"
+        },
+        {
+          "id": "asks-about-fit",
+          "description": "Response asks about extracurriculars, narrative, or what matters to the student in a college — not just stats",
+          "check": "manual"
+        },
+        {
+          "id": "does-not-dismiss-prestige",
+          "description": "Response does not lecture or moralize about prestige; it redirects constructively",
+          "check": "manual"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "returning-student-update",
+      "prompt": "I updated my GPA to 3.7 and added three schools to my list: URI, UMass Amherst, and UConn. Can you update my report?",
+      "expected_output": "Detects the existing jordan-college-profile.md fixture. Does NOT re-interview from scratch. Reads the existing profile, identifies what changed, and updates only affected sections. Appends a dated Session Log entry. Updates the counselor report incrementally, not a full regeneration.",
+      "files": ["fixtures/jordan-college-profile.md"],
+      "evaluates": ["practicality", "accuracy-uncertainty"],
+      "assertions": [
+        {
+          "id": "detects-existing-profile",
+          "description": "Response acknowledges the existing profile by referencing Jordan's prior data before updating",
+          "check": "manual"
+        },
+        {
+          "id": "no-reinterview",
+          "description": "Response does NOT restart the interview from 'what's your name / grade / school' — it updates directly",
+          "check": "negative-regex",
+          "pattern": "(?i)(what's your name|what grade are you|which school do you attend)"
+        },
+        {
+          "id": "records-update-in-profile",
+          "description": "Updated profile file shows evidence the update actually happened: the new GPA 3.7 OR the newly added school UMass Amherst. The fixture contains 3.5 and does NOT contain UMass Amherst, so matching either proves the file was updated rather than just rewritten unchanged.",
+          "check": "file-contains",
+          "file": "*college-profile.md",
+          "pattern": "(?i)(3\\.7|UMass Amherst|umass amherst)"
+        },
+        {
+          "id": "profile-version-preserved",
+          "description": "Updated profile retains profile_version: \"0.5\" in frontmatter",
+          "check": "file-contains",
+          "file": "*college-profile.md",
+          "pattern": "profile_version:\\s*\"?0\\.5\"?"
+        },
+        {
+          "id": "updates-counselor-report-incrementally",
+          "description": "If a counselor report is produced, it reflects the updated GPA and new schools but does not throw away prior content",
+          "check": "manual"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "budget-limited-visit-triage",
+      "prompt": "I can visit 3 schools this spring and my budget is tight. My current list is Brown, URI, UMass, UConn, BU, Northeastern, BC, and Holy Cross. Which should I visit?",
+      "expected_output": "Invokes visit-optimizer pattern (Tier 1-4 categorization). Asks for context it needs (current fit uncertainty, admissions value, travel efficiency) if not already in a profile. Prioritizes by uncertainty reduction and travel efficiency, not just school quality. Does NOT recommend visiting all 8. Considers regional clustering (all these schools are in the Northeast corridor, cheap to cluster).",
+      "files": [],
+      "evaluates": ["practicality", "resource-match", "financial-sensitivity"],
+      "assertions": [
+        {
+          "id": "uses-tier-framework",
+          "description": "Response uses tiered categorization (Prioritize / Conditional / Skip / Apply-but-skip-visit) OR equivalent prioritization framework",
+          "check": "regex",
+          "pattern": "(?i)(tier 1|tier 2|tier 3|tier 4|prioritize visit|conditional fit|consider skipping|apply but skip)"
+        },
+        {
+          "id": "recommends-exactly-3-or-fewer",
+          "description": "Response recommends at most 3 schools to visit (matching the student's stated constraint)",
+          "check": "manual-count"
+        },
+        {
+          "id": "considers-travel-efficiency",
+          "description": "Response mentions clustering, travel efficiency, or driving/visiting multiple schools per trip",
+          "check": "regex",
+          "pattern": "(?i)(clustering|cluster|one trip|same trip|close together|travel efficien|driving distance|combine visits)"
+        },
+        {
+          "id": "asks-for-missing-context",
+          "description": "If profile context is missing, response asks about what the student is looking for, fit uncertainty, or admissions competitiveness before recommending",
+          "check": "manual"
+        },
+        {
+          "id": "justifies-each-recommendation",
+          "description": "Each recommended visit has a specific rationale (fit uncertainty, admissions value, or financial consideration), not just school ranking",
+          "check": "manual"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "counselor-requests-shareable-report",
+      "prompt": "Hi, I'm Taylor's guidance counselor. Taylor told me you've been helping them with college planning. We have a meeting on Thursday. Can you give me a summary of their profile so I can prep?",
+      "expected_output": "Handles the privacy boundary carefully. Counselor report excludes private financial details (household income, FAFSA specifics, family financial picture) by default. Asks whether Taylor consented to share private sections, OR produces only the counselor-safe section and notes the private supplement is student-only. Handles the incomplete-profile case by flagging gaps rather than inventing content.",
+      "files": ["fixtures/taylor-college-profile.md"],
+      "evaluates": ["privacy-separation", "accuracy-uncertainty", "practicality"],
+      "assertions": [
+        {
+          "id": "no-private-financials-leaked",
+          "description": "Response does NOT include household income, family financial picture, FAFSA details, or Pell eligibility in the counselor-facing summary. Anchored on fixture-specific values (68,000 / 68k) so we catch 'family makes $68,000' even without the 'per year' qualifier, while avoiding false positives from generic tuition mentions.",
+          "check": "negative-regex",
+          "pattern": "(?i)(household income|family income|68,000|68k|FAFSA|Pell|CSS Profile|EFC|can't afford|cannot afford)"
+        },
+        {
+          "id": "asks-about-consent",
+          "description": "Response asks whether Taylor opted to share private sections with the counselor, or flags that private info is student-only by default",
+          "check": "manual"
+        },
+        {
+          "id": "flags-profile-incomplete",
+          "description": "Response acknowledges the profile is incomplete and flags which sections are missing rather than fabricating content",
+          "check": "manual"
+        },
+        {
+          "id": "produces-counselor-safe-content",
+          "description": "Response produces or describes a counselor-safe summary (academics, interests, college preferences, discussion topics) — not refusing entirely",
+          "check": "manual"
+        },
+        {
+          "id": "no-fabricated-details",
+          "description": "Response does NOT invent specifics not present in the fixture (e.g., GPA, test scores, schools not listed)",
+          "check": "manual"
+        }
+      ]
+    }
+  ]
+}

@@ -17,3 +17,7 @@ __pycache__/
 # Claude Code — machine-specific (don't commit)
 .claude/settings.local.json
 .claude/memory/
+
+# Eval harness — runtime artifacts, not source
+evals/workspace/
+evals/skill-snapshot/
