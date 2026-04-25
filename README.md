@@ -172,6 +172,8 @@ The skill also triggers automatically when you say things like:
 
 The plugin detects existing files from previous sessions. A student returning in a new conversation picks up where they left off — no need to re-interview or regenerate reports from scratch.
 
+This requires a persistent working directory. Claude Code works by default. Cowork needs a [Project with an attached folder](#claude-desktop-cowork) (default ephemeral sessions don't survive restarts). If neither is set up, the skill offers a paste-in resume option for students who saved their profile from a prior session.
+
 ## Multiple Ways to Access
 
 Good college guidance shouldn't depend on your tech setup. This project offers
@@ -212,12 +214,20 @@ college-navigator-plugin/
 │       │   └── deliberation-protocol.md   # Multi-agent consensus protocol
 │       └── scripts/
 │           └── generate-pdf-report.py # Markdown to PDF conversion
+├── hooks/                             # Privacy hook (PostToolUse: blocks financial leakage to counselor reports)
 ├── scripts/
 │   └── build-zip.sh                   # Package plugin as distributable zip
 ├── platforms/                         # Platform-specific packaging
 │   ├── README.md                      # Platform strategy overview
 │   ├── custom-gpt/                    # ChatGPT Custom GPT instructions + setup
 │   └── gemini-gem/                    # Google Gemini Gem instructions + setup
+├── tests/                             # Privacy hook test fixtures + runner
+│   └── privacy/
+├── evals/                             # Scenario eval harness (6 scenarios, fixtures, graders)
+│   ├── evals.json                     # Manifest with rubric assertions
+│   ├── fixtures/                      # Synthetic student profiles (Jordan, Taylor)
+│   ├── grader.py                      # Programmatic regex/file-contains assertions
+│   └── grade_manual.py                # Manual judgment overlay
 └── LICENSE                            # AGPL v3
 ```
 
