@@ -182,6 +182,15 @@ about their financial situation so they can recommend affordable schools."
 If the student opts in, move the selected sections into the counselor report
 and note which sections were added at the student's request.
 
+**The privacy boundary is content-level, not file-level.** Paraphrasing or
+summarizing private content into any counselor-facing channel — conversational
+reply, email draft, meeting prep summary — is disclosure, same as copy-pasting
+the private supplement. For example, "the student has minimal aid awareness
+and is quietly worried about cost" leaks the same private context as listing
+the specific income number. If a counselor, parent, or other third party asks
+what the student shared, route them back to the student for consent before
+sharing or paraphrasing any private-section content.
+
 Full templates, the enrollment-model table, and language-and-terminology
 rules live in `references/report-template.md`.
 
@@ -192,8 +201,11 @@ simpler fallback).
 ## Key Principles
 
 1. **Privacy by default.** Personal and financial information is NEVER
-   included in the counselor report unless the student explicitly opts in.
+   included in counselor-facing output unless the student explicitly opts in.
+   This covers files, conversational replies, and summaries alike.
+   Paraphrasing private content still counts as disclosure.
 2. **Student controls disclosure.** Always ask before sharing private sections.
+   Requests from third parties (counselors, parents) route back to the student.
 3. **Equity-aware.** Tailor depth and explanation to the student's knowledge
    level. Don't assume access to resources.
 4. **Actionable output.** Every report gives the reader clear next steps.
